@@ -1,3 +1,5 @@
+//import java.util.Scanner;
+
 public class BuddyInfo {
 	private String name;
 	private String address;
@@ -53,5 +55,23 @@ public class BuddyInfo {
 	
 	public String greeting(String g){
 		return g;
+	}
+	
+	public String toString(){
+		String newLine = System.getProperty("line.separator");
+		String str = name + "$" + address + "$" + phoneNumber + newLine;
+		return str;
+	}
+	
+	public BuddyInfo Factory(String str){
+		//BuddyInfo bi = new BuddyInfo();
+		/*Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		sc.close();*/
+		String[] s = str.split("\\$");
+		this.setName(s[0]);
+		this.setAddress(s[1]);
+		this.setPhoneNumber(s[2]);
+		return this;
 	}
 }
